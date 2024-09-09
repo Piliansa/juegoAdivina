@@ -1,13 +1,43 @@
-import Score from "./Score/score"
+import { useState } from "react";
+// import Score from "./Score/score"
+// import Ganaste from "./Ganaste";
 
 
 const Jugar = () => {
+    const [ intentos, setIntentos  ] = useState(10);
+    const [ numElegido, setNumElegido ] = useState(0)
+    const numAAdivinar = 6;
+    
+    const handleInputChange = (e) => {
+        if(numElegido >= 0 && numElegido < 20){
+            setNumElegido(e.target.value)
+        console.log(numElegido);
+        } else {
+            alert("el numero elegido no está entre 0 y 20");
+        }
+        
+
+    }
+    
+
+  const handleKeyDown = (e) => {
+    if(e.key === 'Enter') {
+      e.preventDefault();
+      console.log(numElegido)
+      setIntentos(intentos - 1);
+    }
+    if(intentos != 0 && numElegido === numAAdivinar){
+
+        console.log("GANASTE!")
+    } 
+  }
+
+
   return (
     <div>
       <div>
         <h2>Escribí un número del 1 al 20</h2>
-        <input type="number" />
-        <Score/>
+        <input type="number" value={numElegido} onChange={handleInputChange} onKeyDown={handleKeyDown}/>
       </div>
     </div>
   )

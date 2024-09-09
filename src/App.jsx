@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './App.css'
-// import Comp1 from './components/Comp1/comp1';
+import Jugar from './components/Jugar';
 
 
 
@@ -32,7 +32,7 @@ function App() {
         <h1>PLAY</h1>
       </button>
         {/* {show === true ?  <Comp1/> : <over/>}  */}
-        <div>{ show === true && <jugar/> }</div>
+        <div>{ show === true && <Jugar/> }</div>
       </div>
       <h2 className="read-the-docs">
         Colocá tu nombre:

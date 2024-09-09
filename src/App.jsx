@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import './App.css'
+import './Global.css'
 import Jugar from './components/Jugar/Jugar';
 import InputNombre from './components/inputNombre/InputNombre';
 

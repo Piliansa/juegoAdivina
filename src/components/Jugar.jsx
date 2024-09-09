@@ -23,6 +23,8 @@ const Jugar = () => {
         } else if (num != numAAdivinar && intentos !== 0) {
             console.log("Intenta de nuevo")
             setIntentos(intentos - 1)
+        } else if(intentos === 0){
+            console.log("PERDISTE")
         }
     }
     

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 
 
-const Score = ({inputValue}) => {
+const Score = () => {
 const [ score, setScore ] = useState(0);
 const [ highScore, setHighScore ] = useState(0);
 
@@ -17,7 +17,6 @@ const [ highScore, setHighScore ] = useState(0);
     <comp1/>
   return (
     <div>
-      <h2>Puntos de {inputValue}</h2>
       <h3>Score:{score}</h3>
       <h3>HighScore: {highScore}</h3>
       <button onClick={sumar}>Aumentar score</button>

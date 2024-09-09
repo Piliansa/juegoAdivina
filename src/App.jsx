@@ -28,7 +28,7 @@ function App() {
     <>
       <h1>Adivina el Número</h1>
       <div className="card">
-      <button onClick={ponerPlay} {...(show === true ? {className: "noMostrar" }:{})}>
+      <button className='botonPlay' onClick={ponerPlay} {...(show === true ? {className: "noMostrar" }:{})}>
         <h1>PLAY</h1>
       </button>
         {/* {show === true ?  <Comp1/> : <over/>}  */}
@@ -37,7 +37,7 @@ function App() {
       <h2 className="read-the-docs">
         Colocá tu nombre:
       </h2>
-      <input type="text" value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder='Tu nombre'{...(show === true ? {className: "noMostrar" }:{})}/>
+      <input className="inputStyle" type="text" value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder='Tu nombre'/>
     </>
   )
 }

@@ -16,33 +16,33 @@ const Jugar = () => {
         setNumElegido(e.target.value)
     }
     
-  const handleKeyDown = (e) => {
-    if(e.key === 'Enter') {
-    jugando();
-    } 
-  }
+    const handleKeyDown = (e) => {
+      if(e.key === 'Enter') {
+        jugando();
+      } 
+    }
 
-  const jugando = () => {
+    const jugando = () => {
     
       const num = parseInt(numElegido, 10);
       
-      if(num === numAAdivinar){
-          setGanaste(true)
-          console.log(numElegido);
-      } else if (num != numAAdivinar && intentos > 1) {
-          console.log("Intenta de nuevo")
-          setIntentos(intentos - 1)
-      } else if (intentos === 1) {
-        setGanaste(false);
-      }
-  }
+          if(num === numAAdivinar){
+              setGanaste(true)
+              console.log(numElegido);
+          } else if (num != numAAdivinar && intentos > 1) {
+              console.log("Intenta de nuevo")
+            setIntentos(intentos - 1)
+          } else if (intentos === 1) {
+            setGanaste(false);
+          }
+    }
 
 
   return (
     <div>
       <div>
         <h2>Escribí un número del 1 al 20</h2>
-        <input type="number" value={numElegido} onChange={continuarJuego} onKeyDown={handleKeyDown}/>
+        <input className="inputStyle" type="number" value={numElegido} onChange={continuarJuego} onKeyDown={handleKeyDown}/>
         <div className={ganaste === false ? "estilo" : "noMostrar"}><GameOver /></div> 
         <div className={ganaste === true ? "estilo" : "noMostrar"}><Ganaste/></div>
       </div >

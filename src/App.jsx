@@ -2,23 +2,24 @@
 import { useState } from 'react';
 import './App.css'
 import Jugar from './components/Jugar/Jugar';
+import InputNombre from './components/inputNombre/InputNombre';
 
 
 
 function App() {
   const [ show, setShow ] = useState(false);
-  const [ inputValue, setInputValue ] = useState('');
+  // const [ inputValue, setInputValue ] = useState('');
 
-  const handleInputChange = (e) =>{
-    setInputValue(e.target.value)
-  }
+  // const handleInputChange = (e) =>{
+  //   setInputValue(e.target.value)
+  // }
 
-  const handleKeyDown = (e) => {
-    if(e.key === 'Enter') {
-      e.preventDefault();
-      setInputValue('');
-    }
-  }
+  // const handleKeyDown = (e) => {
+  //   if(e.key === 'Enter') {
+  //     e.preventDefault();
+  //     setInputValue('');
+  //   }
+  // }
 
   function ponerPlay() {
     setShow(!show);
@@ -37,8 +38,8 @@ function App() {
       <h2 className="read-the-docs">
         Colocá tu nombre:
       </h2>
-      <input className="inputStyle" type="text" value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder='Tu nombre'/>
-    </>
+      <InputNombre/>
+      </>
   )
 }
 

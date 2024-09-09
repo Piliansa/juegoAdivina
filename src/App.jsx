@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './App.css'
-import Jugar from './components/Jugar';
+import Jugar from './components/Jugar/Jugar';
 
 
 

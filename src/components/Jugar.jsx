@@ -7,24 +7,23 @@ const Jugar = () => {
     const [ numElegido, setNumElegido ] = useState(0)
     const numAAdivinar = 6;
     
-    const handleOnChange = (e) => {
-        e.preventDefault();
+
+    const continuarJuego = (e) => {
         setNumElegido(e.target.value)
     }
     
   const handleKeyDown = (e) => {
     
     if(e.key === 'Enter') {
+        const num = parseInt(numElegido, 10);
         
-        if(numElegido === numAAdivinar){
+        if(num === numAAdivinar){
             console.log("GANASTE!")
             console.log(numElegido);
-        } else if (numElegido != numAAdivinar && intentos !== 0) {
+        } else if (num != numAAdivinar && intentos !== 0) {
             console.log("Intenta de nuevo")
             setIntentos(intentos - 1)
-
         }
-        
     }
     
   }
@@ -34,7 +33,7 @@ const Jugar = () => {
     <div>
       <div>
         <h2>Escribí un número del 1 al 20</h2>
-        <input type="number" value={numElegido} onChange={numElegido >= 0 && numElegido < 20 ? handleOnChange : alert("el numero elegido no está entre 0 y 20")} onKeyDown={handleKeyDown}/>
+        <input type="number" value={numElegido} onChange={continuarJuego} onKeyDown={handleKeyDown}/>
       </div>
     </div>
   )

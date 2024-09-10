@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import './Global.css'
 import Jugar from './components/Jugar/Jugar';
-import Score from './components/Score/Score'
 
 
 
@@ -23,7 +22,6 @@ function App() {
       </button>
         {/* {show === true ?  <Comp1/> : <over/>}  */}
         <div>{ show === true && <Jugar/> }</div>
-        <Score/>
       </div>
       
       </>

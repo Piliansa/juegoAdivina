@@ -6,15 +6,25 @@ import Ganaste from "../Ganaste/Ganaste";
 
 
 
+
+
 const Jugar = () => {
     const [ intentos, setIntentos  ] = useState(10);
     const [ numElegido, setNumElegido ] = useState(0);
     const [ ganaste, setGanaste ] = useState(null);
+    const [ highScore, setHighScore ] = useState(0);  
+    const [ score, setScore ] = useState(0);
     const pista1 = "Pista: ¡Más alto!";
     const pista2 = "Pista: ¡Más bajo";
     const numAAdivinar = 6;
 
-    
+    const sumar = () => {
+      const newScore = score + 19;
+      setScore(newScore);
+      if( newScore > highScore ) {
+        setHighScore(newScore);
+      }
+  }
 
     const continuarJuego = (e) => {
         setNumElegido(e.target.value)
@@ -22,7 +32,7 @@ const Jugar = () => {
     
     const handleKeyDown = (e) => {
       if(e.key === 'Enter') {
-        jugando();
+        jugando({score}, {highScore});
       } 
     }
 
@@ -32,6 +42,7 @@ const Jugar = () => {
       
           if(num === numAAdivinar){
               setGanaste(true)
+              sumar()
           } else if( num < 0 || num > 20){
             alert("El numero debe estar entre 0 y 20")
           }
@@ -51,6 +62,7 @@ const Jugar = () => {
     <div>
         <h2>Escribí un número del 1 al 20</h2>
         <input className="inputStyle" type="number" value={numElegido} onChange={continuarJuego} onKeyDown={handleKeyDown}/>
+       <h2>score: {score} highScore: {highScore}</h2>
         <div className={ganaste === false ? "estilo" : "noMostrar"}><GameOver /></div> 
         <div className={ganaste ? "estilo" : "noMostrar"}><Ganaste/></div>
         
